@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { Img, Heading, Button, Text } from "../../components";
 import { Link } from "react-router-dom";
 const SideBar = () => {

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Helmet } from "react-helmet";
 import { Button, Input, TextArea, Heading, Img, Text } from "../../components";
 
 export default function CardLayoutFormPage() {

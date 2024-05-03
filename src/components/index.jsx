@@ -4,4 +4,5 @@ import { Heading } from "./Heading";
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { TextArea } from "./TextArea";
-export { Img, Text, Heading, Button, Input, TextArea };
+import { Spinner } from "react-bootstrap";
+export { Img, Text, Heading, Button, Input, TextArea ,Spinner};

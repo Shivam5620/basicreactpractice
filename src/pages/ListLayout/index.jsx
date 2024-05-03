@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
 import { Img, Heading, Button, Text } from "../../components";
-import { Link } from "react-router-dom";
 import SideBar from "pages/SidebarLayout";
 
 export default function ListLayoutPage() {
@@ -16,6 +14,21 @@ export default function ListLayoutPage() {
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=4`);
     const data = await response.json();
     setPosts(data);
+  };
+
+  const removeRow = (id) => {
+    setPosts(posts.filter((post) => post.id !== id));
+
+    // Fetch a new row and append it to the end of the array
+    fetchNewRow().then((newRow) => {
+      setPosts([...posts.slice(0, 3), newRow]); // Ensure only 4 cards are displayed
+    });
+  };
+
+  const fetchNewRow = async () => {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${Math.floor(Math.random() * 100) + 1}`);
+    const data = await response.json();
+    return data;
   };
 
   return (
@@ -48,7 +61,7 @@ export default function ListLayoutPage() {
                     </div>
                   </div>
                   <div className="flex flex-col gap-[91px] md:gap-[68px] sm:gap-[45px]">
-                    <Button className="w-[49px] rounded-[24px]">
+                    <Button onClick={() => removeRow(post.id)} className="w-[49px] rounded-[24px]">
                       <Img src="images/img_close.svg" />
                     </Button>
                   </div>
