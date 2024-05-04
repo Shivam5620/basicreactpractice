@@ -86,9 +86,21 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 ## Installing a Dependency
 
 You can install any dependencies (for example, React Router) with `npm`:
+but first run for 
 
 ```sh
-npm install --save react-router
+npm install 
+```
+
+
+```sh
+npm install --save react-router-dom
+```
+```sh
+npm install --save react-redux
+```
+```sh
+npm install --save react-thunk
 ```
 
 Alternatively you may use `yarn`:
